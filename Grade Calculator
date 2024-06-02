@@ -1,0 +1,59 @@
+using System;
+
+class GradeCalculator
+{
+    static void Main(string[] args)
+    {
+        // Get the numerical grade from the user
+        while (true)
+        {
+            try
+            {
+                Console.WriteLine("Enter your numerical grade (between 0 and 100): ");
+                float numericalGrade = float.Parse(Console.ReadLine());
+
+                if (numericalGrade >= 0 && numericalGrade <= 100)
+                {
+                    CalculateLetterGrade(numericalGrade);
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Grade must be between 0 and 100. Please try again.");
+                }
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Invalid input. Please enter a number.");
+            }
+        }
+    }
+
+    static void CalculateLetterGrade(float numericalGrade)
+    {
+        string letterGrade;
+
+        if (numericalGrade >= 90)
+        {
+            letterGrade = "A";
+        }
+        else if (numericalGrade >= 80)
+        {
+            letterGrade = "B";
+        }
+        else if (numericalGrade >= 70)
+        {
+            letterGrade = "C";
+        }
+        else if (numericalGrade >= 60)
+        {
+            letterGrade = "D";
+        }
+        else
+        {
+            letterGrade = "F";
+        }
+
+        Console.WriteLine($"Your grade for {numericalGrade} is {letterGrade}");
+    }
+}
