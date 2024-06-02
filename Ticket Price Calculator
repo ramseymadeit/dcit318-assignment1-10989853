@@ -1,0 +1,41 @@
+using System;
+
+class TicketPriceCalculator
+{
+    static void Main(string[] args)
+    {
+        // Get the customer's age
+        int age;
+        while (true)
+        {
+            try
+            {
+                Console.WriteLine("Enter your age: ");
+                age = int.Parse(Console.ReadLine());
+                break;
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Invalid input. Please enter a number.");
+            }
+        }
+
+        // Calculate the ticket price based on age
+        double ticketPrice;
+        if (age >= 65)
+        {
+            ticketPrice = 7.0; // Use double for potentially decimal calculations
+        }
+        else if (age <= 12)
+        {
+            ticketPrice = 7.0;
+        }
+        else
+        {
+            ticketPrice = 10.0;
+        }
+
+        // Display the ticket price
+        Console.WriteLine($"The ticket price for your age ({age}) is GHC{ticketPrice}");
+    }
+}
